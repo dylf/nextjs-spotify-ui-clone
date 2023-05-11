@@ -3,22 +3,31 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.5",
+    "@heroicons/react": "^1.0.6",
+    "@t3-oss/env-core": "^0.3.1",
     "lodash": "^4.17.21",
-    "next": "latest",
-    "next-auth": "^4.0.0-beta.7",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "next": "13.4.1",
+    "next-auth": "^4.22.1",
+    "react": "18",
+    "react-dom": "18",
     "recoil": "^0.5.2",
     "spotify-web-api-node": "^5.0.2",
-    "tailwind-scrollbar-hide": "^1.1.6"
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.6",
-    "postcss": "^8.3.5",
-    "tailwindcss": "^2.2.4"
+    "@types/node": "20.1.2",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "autoprefixer": "^10.4.14",
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.1",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^2.2.19",
+    "typescript": "5.0.4"
   }
 }
