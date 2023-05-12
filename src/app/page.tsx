@@ -9,7 +9,7 @@ export default function Home() {
     <div className="bg-black h-screen overflow-hiddens">
       <main className="flex">
         <h1 className="text-white">Hello</h1>
-        {/* <Sidebar /> */}
+        <Sidebar />
         {/* <Center /> */}
       </main>
       <div className="sticky bottom-0">{/* <Player /> */}</div>
