@@ -1,18 +1,12 @@
-import { getSession } from "next-auth/react";
-import Head from "next/head";
-import Center from "@/components/Center";
-import Player from "@/components/Player";
-import Sidebar from "@/components/Sidebar";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import App from "@/components/App";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions);
   return (
     <div className="bg-black h-screen overflow-hiddens">
-      <main className="flex">
-        <h1 className="text-white">Hello</h1>
-        <Sidebar />
-        {/* <Center /> */}
-      </main>
-      <div className="sticky bottom-0">{/* <Player /> */}</div>
+      <App session={session} />
     </div>
   );
 }

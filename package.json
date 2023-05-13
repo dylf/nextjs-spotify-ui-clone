@@ -17,6 +17,7 @@
     "react-dom": "18",
     "recoil": "^0.5.2",
     "spotify-web-api-node": "^5.0.2",
+    "tailwind": "^4.0.0",
     "tailwind-scrollbar-hide": "^1.1.7",
     "zod": "^3.21.4"
   },
