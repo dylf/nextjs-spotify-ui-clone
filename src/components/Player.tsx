@@ -1,3 +1,7 @@
+import { useCallback, useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRecoilState } from "recoil";
+import debounce from "lodash/debounce";
 import {
   ReplyIcon,
   SwitchHorizontalIcon,
@@ -10,15 +14,8 @@ import {
   RewindIcon,
   VolumeUpIcon,
 } from "@heroicons/react/solid";
-import { data } from "autoprefixer";
-import { debounce } from "lodash";
-import { useSession } from "next-auth/react";
-import { useCallback } from "react";
-import { useEffect, useState } from "react/cjs/react.development";
-import { useRecoilState } from "recoil";
 import { currentTrackIdState, isPlayingState } from "../atoms/songAtom";
-import useSongInfo from "../hooks/useSongInfo";
-import useSpotify from "../hooks/useSpotify";
+import { useSongInfo, useSpotify } from "@/hooks";
 
 function Player() {
   const spotifyApi = useSpotify();
@@ -82,7 +79,7 @@ function Player() {
           alt=""
         />
         <div>
-          <h3>{songInfo?.name}</h3>
+          <h3>{songInfo?.name ?? ""}</h3>
           <p>{songInfo?.artists?.[0]?.name}</p>
         </div>
       </div>
