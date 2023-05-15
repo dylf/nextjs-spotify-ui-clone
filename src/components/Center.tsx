@@ -20,12 +20,13 @@ const colors = [
 function Center() {
   const { data: session } = useSession();
   const spotifyApi = useSpotify();
-  const [color, setColor] = useState(null);
+  const [color, setColor] = useState(colors[0]);
   const playlistId = useRecoilValue(playlistIdState);
   const [playlist, setPlaylist] = useRecoilState(playlistState);
 
   useEffect(() => {
-    setColor(shuffle(colors).pop());
+    const randColor = shuffle(colors).pop() ?? colors[0];
+    setColor(randColor);
   }, [playlistId]);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ function Center() {
       .then((data) => {
         setPlaylist(data.body);
       })
-      .catch((err) => console.log("Something went wrong!", err));
+      .catch((err: Error) => console.log("Something went wrong!", err));
   }, [spotifyApi, playlistId]);
 
   return (
@@ -43,8 +44,8 @@ function Center() {
         <div className="flex items-center bg-black space-x-3 opacity-90 hover:opacity-80 cursor-pointer rounded-full p-1 pr-2">
           <img
             className="rounded-full w-10 h-10"
-            src={session?.user.image}
-            alt=""
+            src={session?.user.image ?? ""}
+            alt="Profile image"
           />
           <h2>{session?.user.name}</h2>
           <ChevronDownIcon className="h-5 w-5" />
